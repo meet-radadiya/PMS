@@ -4,7 +4,9 @@
     <option name="GROUP_BY_SEVERITY" value="true" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e0c8b989-09c3-49f3-bc32-51d9683d5c1e" name="Default" comment="Init Commit" />
+    <list default="true" id="e0c8b989-09c3-49f3-bc32-51d9683d5c1e" name="Default" comment="Init Commit">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
