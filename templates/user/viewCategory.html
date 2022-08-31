@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Category</title>
+    <link rel="stylesheet" href="../../static/CSS/main.css">
+</head>
+<body>
+    <h1>
+        View Category
+    </h1>
+    <br><br><br><br>
+    <table>
+        <th>Category Name</th>
+        <th>Category Description</th>
+
+        {% for values in category_vo_list %}
+            <tr>
+                <td>{{ values.category_name }}</td>
+                <td>{{ values.category_description }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--suppress HtmlUnknownTarget -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Product</title>
+    <link rel="stylesheet" href="../../static/CSS/main.css">
+</head>
+<body>
+<div style="text-align: center;"><table>
+    <br><h1>View Product</h1><br>
+    <th>Product Name</th>
+    <th>Product Description</th>
+    <th>Product Price</th>
+    <th>Product Quantity</th>
+    <th>Product Image</th>
+    <th>Sub Category Name</th>
+    <th>Category Name</th>
+    <th colspan="2">Action</th>
+
+    {% for values in product_list %}
+        <tr>
+            <td>{{ values.product_name }}</td>
+            <td>{{ values.product_description }}</td>
+            <td>{{ values.product_price }}</td>
+            <td>{{ values.product_quantity }}</td>
+            <td><a href="../../{{ values.product_image }}"> <img src="../../{{ values.product_image.url }}" alt="Product Image"></a></td>
+            <td>{{ values.product_sub_category_vo.sub_category_name }}</td>
+            <td>{{ values.product_category_vo.category_name }}</td>
+            <td><a href="/product/edit_product?productId={{ values.product_id }}&imagePath={{ values.product_image }}">Edit</a></td>
+            <td><a href="/product/delete_product?productId={{ values.product_id }}&imagePath={{ values.product_image }}">Delete</a></td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+</body>
+</html>

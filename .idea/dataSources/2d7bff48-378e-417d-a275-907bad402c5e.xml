@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="Django default">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.4">
+    <root id="1"/>
+    <schema id="2" parent="1" name="college lec"/>
+    <schema id="3" parent="1" name="djangodb">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="4" parent="1" name="information_schema"/>
+    <schema id="5" parent="1" name="jstl"/>
+    <schema id="6" parent="1" name="lecture 1"/>
+    <schema id="7" parent="1" name="mysql"/>
+    <schema id="8" parent="1" name="python"/>
+    <schema id="9" parent="1" name="python_category_project_flask"/>
+    <schema id="10" parent="1" name="pythondb"/>
+    <schema id="11" parent="1" name="sih"/>
+    <schema id="12" parent="1" name="springboot"/>
+    <schema id="13" parent="1" name="test"/>
+  </database-model>
+</dataSource>

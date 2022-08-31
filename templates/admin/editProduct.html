@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Product</title>
+    <link rel="stylesheet" href="../../static/CSS/main.css">
+    <script type="text/javascript" src="../../static/JS/ajax.js"></script>
+</head>
+<body>
+<br><h1>Edit Product</h1><br><br>
+    <form action="/product/update_product/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        {% for value in product_vo_list %}
+        <table>
+            <tr>
+                <td>
+                    <label for="productName">Product Name:</label>
+                </td>
+                <td>
+                    <input type="text" id="productName" name="productName" value="{{ value.product_name }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <label for="productDescription">Product Description:</label>
+                </td>
+                <td>
+                    <input type="text" id="productDescription" name="productDescription" value="{{ value.product_description }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="productPrice">Product Price:</label>
+                </td>
+                <td>
+                    <input type="number" min="0" id="productPrice" name="productPrice" value="{{ value.product_price }}">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="productQuantity">Product Quantity</label>
+                </td>
+                <td>
+                    <input type="number" min="1" max="10" id="productQuantity" name="productQuantity" value="{{ value.product_quantity }}">
+                </td>
+            </tr>
+{#            <tr>#}
+{#                <td>#}
+{#                    <label for="productFile">Upload File:</label>#}
+{#                </td>#}
+{#                <td>#}
+{#                    <center>#}
+{#                    <input type="file" name="productFile" id="productFile" accept="image/png, image/jpeg" onchange="loadFile(event)">#}
+{#                    </center>#}
+{#                    <img id="output" src="{{ product_vo_list[0][0].product_image_path }}" alt="Image Preview"/>#}
+{#                    <script src="../../static/JS/loadFile.js"></script>#}
+{#                </td>#}
+{#            </tr>#}
+            <tr>
+                <td>
+                    <label for="productCategoryDropdown">Category Name:</label>
+                </td>
+
+                <td>
+                    <select id="productCategoryDropdown" name="productCategoryDropdown" onchange="dropdown()">
+                        <option selected value="{{ value.product_category_vo.category_id }}">{{ value.product_category_vo.category_name }}</option>
+                        {% for values in category_vo_list %}
+                        <option value="{{ values.category_id }}" >{{ values.category_name }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="productSubCategoryDropdown">Sub Category Name:</label>
+                </td>
+
+                <td>
+                    <select id="productSubCategoryDropdown" name="productSubCategoryDropdown">
+                    <option selected value="{{ value.product_sub_category_vo.sub_category_id }}">{{ value.product_sub_category_vo.sub_category_name }}</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div style="text-align: center;">
+                        <input type="hidden" name="productImage" value="{{ value.product_image }}">
+                        <input type="hidden" name="productId" value="{{ value.product_id }}">
+                        <input type="submit" name="Submit">
+                        <input type="reset" name="Reset">
+                    </div>
+                </td>
+            </tr>
+        </table>
+        {% endfor %}
+    </form>
+</body>
+</html>

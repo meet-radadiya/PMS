@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Sub Category</title>
+    <link rel="stylesheet" href="../../static/CSS/main.css">
+</head>
+<body>
+    <div style="text-align: center;">
+    <table>
+    <br><h1>View Sub Category</h1><br>
+    <th>Category Name</th>
+    <th>Sub Category Name</th>
+    <th>Sub Category Description</th>
+    <th colspan="2">Action</th>
+
+    {% for values in sub_category_vo_list %}
+        <tr>
+            <td>{{ values.sub_category_category_vo.category_name }}</td>
+            <td>{{ values.sub_category_name }}</td>
+            <td>{{ values.sub_category_description }}</td>
+            <td><a href="/sub_category/edit_sub_category?subcategoryId={{ values.sub_category_id }}">Edit</a></td>
+            <td><a href="/sub_category/delete_sub_category?subcategoryId={{ values.sub_category_id }}">Delete</a></td>
+        </tr>
+    {% endfor %}
+</table>
+</div>
+</body>
+</html>

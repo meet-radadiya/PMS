@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Edit Category</title>
+    <link rel="stylesheet" href="../../static/CSS/main.css">
+</head>
+<body>
+<form action="/category/update_category/" method="post">{% csrf_token %}
+        <br><h1>Edit Category</h1><br>
+    <table>
+    <tr>
+        <td>
+            <label for="categoryName">Category Name:</label>
+        </td>
+        <td>
+            <input type="text" name="categoryName" id="categoryName" value="{{ category_vo_list.category_name }}">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="categoryDescription">Category Description:</label>
+        </td>
+        <td>
+            <input type="text" name="categoryDescription" id="categoryDescription" value="{{ category_vo_list.category_description }}">
+        </td>
+    </tr>
+    <tr>
+        <td colspan="2">
+            <input type="hidden" name="categoryId" id="categoryId" value="{{ category_vo_list.category_id }}">
+            <input type="submit" name="Submit">
+            <input type="reset" name="Reset">
+        </td>
+    </tr>
+    </table>
+</form>
+</body>
+</html>

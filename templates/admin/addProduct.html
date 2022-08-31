@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!--suppress ALL -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Product</title>
+    <link rel="stylesheet" href="../../static/CSS/main.css">
+    <script type="text/javascript" src="../../static/JS/ajax.js"></script>
+</head>
+<body>
+<br><h1>Add Product</h1><br><br>
+    <form action="/product/insert_product/" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+        <table>
+            <tr>
+                <td>
+                    <label for="productName">Product Name:</label>
+                </td>
+                <td>
+                    <input type="text" id="productName" name="productName">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                   <label for="productDescription">Product Description:</label>
+                </td>
+                <td>
+                    <input type="text" id="productDescription" name="productDescription">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="productPrice">Product Price:</label>
+                </td>
+                <td>
+                    <input type="number" min="0" id="productPrice" name="productPrice">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="productQuantity">Product Quantity</label>
+                </td>
+                <td>
+                    <input type="number" min="1" max="10" id="productQuantity" name="productQuantity">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="productFile">Upload File:</label>
+                </td>
+                <td>
+                    <div style="text-align: center;">
+                    <input type="file" name="productFile" id="productFile" accept="image/png, image/jpeg" onchange="loadFile(event)">
+                    </div>
+                    <img id="output" src="#" alt="Image Preview"/>
+                    <script src="../../static/JS/loadFile.js"></script>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="productCategoryDropdown">Category Name:</label>
+                </td>
+
+                <td>
+                    <select id="productCategoryDropdown" name="productCategoryDropdown" onchange="dropdown()">
+                        <option selected disabled>--Select Category--</option>
+                        {% for values in category_vo_list %}
+                        <option value="{{ values.category_id }}" >{{ values.category_name }}</option>
+                        {% endfor %}
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="productSubCategoryDropdown">Sub Category Name:</label>
+                </td>
+
+                <td>
+                    <select id="productSubCategoryDropdown" name="productSubCategoryDropdown">
+                    <option selected disabled>--Select Sub Category--</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <div style="text-align: center;">
+                        <input type="submit" name="Submit">
+                        <input type="reset" name="Reset">
+                    </div>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>
